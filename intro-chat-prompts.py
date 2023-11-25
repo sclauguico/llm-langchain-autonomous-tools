@@ -42,5 +42,24 @@ prompt = f"""
 rewrite = get_completion(prompt=prompt)
 
 # Print the result of the translation
-print(rewrite)
+# print(rewrite)
 
+# ======= Using LangChain & prompt templates - Still ChatAI =======
+chat_model = ChatOpenAI(temperature=0.7, 
+                        model=llm_model)
+
+template_string = """
+    Translate the following text{customer_review}
+    into Italiano in a polite tone.
+    And the company name is {company_name}
+"""
+
+prompt_template = ChatPromptTemplate.from_template(template_string)
+
+translation_message = prompt_template.format_messages(
+    customer_review = customer_review,
+    company_name = "Google"
+)
+
+response = chat_model(translation_message)
+print(response.content) 
