@@ -20,4 +20,4 @@ print(llm.predict("What is the weather in the Philippines?"))
 print("=============================")
 # print(chat_model.predict("What is the weather in the Philippines?"))
 
-print(chat_model.predict_messages(messages))
+print(chat_model.predict_messages(messages).content)
