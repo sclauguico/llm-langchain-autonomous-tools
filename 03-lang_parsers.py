@@ -110,7 +110,7 @@ email: {email}
 """
 
 updated_prompt = ChatPromptTemplate.from_template(template=email_template_revised)
-messages = prompt_template.format_messages(email=email_response,
+messages = updated_prompt.format_messages(email=email_response,
                                            format_instructions=format_instructions)
 
 response = chat(messages)
@@ -121,3 +121,4 @@ print(type(response.content))
 output_dict = output_parser.parse(response.content) # parse into dict
 print(type(output_dict))
 print(f"Cities:::: {output_dict['cities_to_visit'][1]}")
+print(f"Cities:::: {output_dict['cities_to_visit']}")

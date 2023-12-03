@@ -57,7 +57,9 @@ from typing import List
 
 # Define desired data structure
 class VacationInfo(BaseModel):
-    leave_time: str = Field(description="When they are leaving. It's usually")
+    leave_time: str = Field(description="When they are leaving.  \
+                                         It's usually a numerical time of the day. \
+                                           If not available write n/a")
     leave_from: str = Field(description="Where are they leaving from.\
                                           it's a city, airport or state, or province")
     cities_to_visit: List = Field(description="The cities, towns they will be visiting on \
@@ -95,8 +97,8 @@ format_response = chat(meassages)
 
 vacation = pydantic_parser.parse(format_response.content)
 # print(type(vacation))
-# print(vacation)
-# print(vacation.cities_to_visit)
+print(vacation)
+print(vacation.cities_to_visit)
 for item in vacation.cities_to_visit:
     print(f"Cities: {item}")
     
