@@ -15,12 +15,12 @@ llm = OpenAI(temperature=0.0)
 # print(llm.predict("What is LangChain and how does it work?"))
 
  
-# llm_math = LLMMathChain.from_llm(llm=llm)
-# math_tool = Tool(
-#     name="Calculator",
-#     func=llm_math.run,
-#     description="Useful for when you need to answer questions related to Math."
-# )
+llm_math = LLMMathChain.from_llm(llm=llm)
+math_tool = Tool(
+    name="Calculator",
+    func=llm_math.run,
+    description="Useful for when you need to answer questions related to Math."
+)
 
 # tools = [math_tool]
 

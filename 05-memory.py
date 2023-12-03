@@ -33,4 +33,4 @@ conversation.predict(input="What's my name?")
 
 print(f"Memory ===> {memory.buffer} <====")
 
-# print(memory.load_memory_variables({}))
+print(memory.load_memory_variables({}))
